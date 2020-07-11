@@ -10,7 +10,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
   declarations: [
     AppComponent,
     HomePageComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
