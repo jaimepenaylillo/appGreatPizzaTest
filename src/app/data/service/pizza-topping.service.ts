@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PizzaTopping } from '../schema/pizzaTopping';
+import { PizzaTopping, PizzaToppingDetailed } from '../schema/pizzaTopping';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Constants } from 'src/app/core/constants';
@@ -12,17 +12,16 @@ export class PizzaToppingService {
 
   constructor(private http: HttpClient, private constants: Constants) { }
 
-  getToppingsFromPizza(idPizza: number): Observable<PizzaTopping[]> {
-    const idPizzaParam = JSON.stringify(idPizza);
-    return this.http.get(this.constants.API_ENDPOINT + '/pizzaTopping/' + idPizzaParam)
+  getToppingsFromPizza(idPizza: number): Observable<PizzaToppingDetailed[]> {
+    return this.http.get(this.constants.API_ENDPOINT + '/pizzaTopping/' + idPizza)
       .pipe(map((data: any) => {
+        console.log(data)
         return data;
       }));
   }
 
   addToppingToPizza(pizzaTopping: PizzaTopping): Observable<boolean> {
-    const pramaJson = JSON.stringify(pizzaTopping);
-    return this.http.post(this.constants.API_ENDPOINT + '/pizzaTopping', pramaJson)
+    return this.http.post(this.constants.API_ENDPOINT + '/pizzaTopping', pizzaTopping)
       .pipe(map((data: boolean) => {
         return data;
       }));

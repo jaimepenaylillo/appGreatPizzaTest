@@ -3,3 +3,8 @@ export class PizzaTopping {
   idPizza: number;
   idTopping: number;
 }
+
+export class PizzaToppingDetailed extends PizzaTopping {
+  toppingName:string;
+  pizzaName: string;
+}

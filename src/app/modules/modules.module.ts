@@ -17,6 +17,7 @@ import { ListPizzaComponent } from './pizza/list-pizza/list-pizza.component';
 import { ListPizzaToppingComponent } from './pizza-topping/list-pizza-topping/list-pizza-topping.component'
 import { PizzaService } from '../data/service/pizza.service';
 import { ToppingService } from '../data/service/topping.service';
+import { PizzaToppingService } from '../data/service/pizza-topping.service';
 
 @NgModule({
   imports: [
@@ -36,6 +37,6 @@ import { ToppingService } from '../data/service/topping.service';
     ListPizzaToppingComponent,
     ListToppingComponent
   ],
-  providers: [PizzaService, ToppingService],
+  providers: [PizzaService, ToppingService, PizzaToppingService],
 })
 export class ModulesModule { }

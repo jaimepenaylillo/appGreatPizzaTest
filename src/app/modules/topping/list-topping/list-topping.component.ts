@@ -2,8 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Topping } from 'src/app/data/schema/topping';
 import { Observable } from 'rxjs';
 
-import { ToppingService } from 'src/app/data/service/topping.service';
-
 @Component({
   selector: 'gp-list-topping',
   templateUrl: './list-topping.component.html',
@@ -17,7 +15,7 @@ export class ListToppingComponent implements OnInit {
   pageSize = 1;
   collectionSize: number;
 
-  constructor( public service: ToppingService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

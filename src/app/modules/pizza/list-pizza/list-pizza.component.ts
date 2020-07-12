@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { Pizza } from 'src/app/data/schema/pizza';
 import { Observable } from 'rxjs';
-import { PizzaService } from 'src/app/data/service/pizza.service';
+
 
 @Component({
   selector: 'gp-list-pizza',
@@ -16,7 +16,7 @@ export class ListPizzaComponent implements OnInit {
   pageSize = 1;
   collectionSize: number;
 
-  constructor( public service: PizzaService) { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }

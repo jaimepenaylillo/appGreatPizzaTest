@@ -1,1 +1,36 @@
-<p>pizza-topping works!</p>
+<div class="row">
+
+<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <gp-list-pizza-topping [toppingsFromPizza$]="toppingsFromPizza$"></gp-list-pizza-topping>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <form [formGroup]="pizzaToppingForm" (ngSubmit)="addToppingToPizza()" novalidate>
+        <div class="form-group">
+          <label>Select a Pizza</label>
+          <select formControlName="idPizza" (change)="ddlPizzaChanged($event)" class="form-control" >
+            <option selected value="0">Select a Pizza..</option>
+            <option *ngFor="let pizza of pizzas; let i = index" [value]="pizza.id">{{pizza.name}}</option>
+          </select>
+          <div *ngIf="f.idPizza.errors" class="invalid-feedback">
+            <div *ngIf="f.idPizza.errors.required">select a Pizza is Required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Select a Topping</label>
+          <select formControlName="idTopping" class="form-control" >
+            <option selected value=0>Select a Topping..</option>
+            <option *ngFor="let topping of toppings; let i = index" [value]="topping.id">{{topping.name}}</option>
+          </select>
+          <div *ngIf="f.idTopping.errors" class="invalid-feedback">
+            <div *ngIf="f.idTopping.errors.required">select a Topping is Required</div>
+          </div>
+        </div>
+       <button class="btn" type="submit" [disabled]="pizzaToppingForm.pristine">
+        <i class="fa fa-save"></i>
+      </button>
+      <button class="btn" type="reset" (click)="revert()" [disabled]="pizzaToppingForm.pristine">
+        <i class="fa fa-recycle"></i>
+      </button>
+    </form>
+  </div>
+</div>
