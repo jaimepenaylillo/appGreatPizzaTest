@@ -28,12 +28,10 @@ export class PizzaService {
       }));
   }
 
-  addPizza(pizza: Pizza): Observable<boolean> {
+  addPizza(pizza: Pizza) {
     const pramaJson = JSON.stringify(pizza);
-    return this.http.post(this.constants.API_ENDPOINT + '/pizza', pramaJson)
-      .pipe(map((data: boolean) => {
-        return data;
-      }));
+    console.log(pramaJson)
+    return this.http.post<Pizza>(this.constants.API_ENDPOINT + '/pizza', pizza);
   }
 
   deletePizza(idPizza: number): Observable<boolean> {

@@ -1,13 +1,26 @@
-<form [formGroup]="pizzaForm" (ngSubmit)="onSubmit()" novalidate>
-  <div formGroupName="pizzaForm" novalidate>
-    <input formControlName="id" />
-    <input formControlName="name" />
+<div class="row">
+  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+    <gp-list-pizza [pizzas$]="pizzas$"  (deletePizza)="deletePizza($event)"></gp-list-pizza>
   </div>
-  <input formControlName="text" />
-  <button class="btn" type="submit" [disabled]="pizzaForm.pristine">
-    <i class="fa fa-save"></i>
-  </button>
-  <button class="btn" type="reset" (click)="revert()" [disabled]="pizzaForm.pristine">
-    <i class="fa fa-recycle"></i>
-  </button>
-</form>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <form [formGroup]="pizzaForm" (ngSubmit)="savePizza()" novalidate>
+
+        <div class="form-group">
+          <label>Add a pizza</label>
+          <input type="text" formControlName="name" class="form-control" />
+          <div *ngIf="f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+          </div>
+        </div>
+
+      <button class="btn" type="submit" [disabled]="pizzaForm.pristine">
+        <i class="fa fa-save"></i>
+      </button>
+      <button class="btn" type="reset" (click)="revert()" [disabled]="pizzaForm.pristine">
+        <i class="fa fa-recycle"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+
