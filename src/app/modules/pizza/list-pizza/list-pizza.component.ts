@@ -9,9 +9,8 @@ import { PizzaService } from 'src/app/data/service/pizza.service';
   styleUrls: ['./list-pizza.component.scss']
 })
 export class ListPizzaComponent implements OnInit {
-  @Input() reloadGrid: boolean;
   @Input() pizzas$:  Observable<Pizza[]>;
-  @Output() deletePizza =  new EventEmitter<Pizza>();;
+  @Output() deletePizza =  new EventEmitter<Pizza>();
 
   page = 1;
   pageSize = 1;

@@ -29,8 +29,7 @@ export class ToppingService {
   }
 
   addTopping(topping: Topping): Observable<boolean> {
-    const pramaJson = JSON.stringify(topping);
-    return this.http.post(this.constants.API_ENDPOINT + '/topping', pramaJson)
+    return this.http.post(this.constants.API_ENDPOINT + '/topping', topping)
       .pipe(map((data: boolean) => {
         return data;
       }));

@@ -1,1 +1,29 @@
-<p>list-topping works!</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Topping Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let topping of toppings$ | async">
+    <button type="button" (click)="onDeleteTopping(topping)" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+    <th scope="row">{{ topping.id }}</th>
+    <td>
+      {{ topping.name }}
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+  </ngb-pagination>
+
+  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+    <option [ngValue]="2">2 items per page</option>
+    <option [ngValue]="4">4 items per page</option>
+    <option [ngValue]="6">6 items per page</option>
+  </select>
+</div>
+-->

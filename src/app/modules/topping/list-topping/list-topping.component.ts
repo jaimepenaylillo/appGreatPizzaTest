@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Topping } from 'src/app/data/schema/topping';
+import { Observable } from 'rxjs';
+
+import { ToppingService } from 'src/app/data/service/topping.service';
 
 @Component({
   selector: 'gp-list-topping',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-topping.component.scss']
 })
 export class ListToppingComponent implements OnInit {
+  @Input() toppings$:  Observable<Topping[]>;
+  @Output() deleteTopping =  new EventEmitter<Topping>();
 
-  constructor() { }
+  page = 1;
+  pageSize = 1;
+  collectionSize: number;
+
+  constructor( public service: ToppingService) { }
 
   ngOnInit(): void {
   }
 
+  onDeleteTopping(topping: Topping){
+    this.deleteTopping.emit(topping);
+   }
+
 }
+

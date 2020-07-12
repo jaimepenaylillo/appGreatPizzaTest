@@ -3,7 +3,7 @@
     <gp-list-pizza [pizzas$]="pizzas$"  (deletePizza)="deletePizza($event)"></gp-list-pizza>
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    <form [formGroup]="pizzaForm" (ngSubmit)="savePizza()" novalidate>
+    <form [formGroup]="pizzaForm" (ngSubmit)="addPizza()" novalidate>
 
         <div class="form-group">
           <label>Add a pizza</label>

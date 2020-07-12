@@ -33,13 +33,12 @@ export class PizzaComponent implements OnInit {
     this.pizzas$ = this.service.getPizzas();
   }
 
-  savePizza() {
+  addPizza() {
     const pizzasave = {
       id: null,
       name: this.pizzaForm.value.name
     }
-    console.log('pizza result', pizzasave)
-    this.service.addPizza(pizzasave)
+     this.service.addPizza(pizzasave)
       .subscribe(ps => {
         console.log('pizza result', ps);
         this.getPizzas();
