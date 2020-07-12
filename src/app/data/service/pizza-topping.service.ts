@@ -15,7 +15,6 @@ export class PizzaToppingService {
   getToppingsFromPizza(idPizza: number): Observable<PizzaToppingDetailed[]> {
     return this.http.get(this.constants.API_ENDPOINT + '/pizzaTopping/' + idPizza)
       .pipe(map((data: any) => {
-        console.log(data)
         return data;
       }));
   }

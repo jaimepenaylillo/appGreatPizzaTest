@@ -1,1 +1,22 @@
-<p>home-page works!</p>
+<div class="row">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pizza</th>
+        <th scope="col">Toppings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let menuPizza of menuPizzas ; let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{menuPizza.pizzaName}}</td>
+        <td>
+          <ul *ngFor="let topping of menuPizza.toppings ; let i = index">
+            <li>{{topping.nameTopping}}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
