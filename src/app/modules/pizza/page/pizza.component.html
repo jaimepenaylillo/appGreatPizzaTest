@@ -1,0 +1,13 @@
+<form [formGroup]="pizzaForm" (ngSubmit)="onSubmit()" novalidate>
+  <div formGroupName="pizzaForm" novalidate>
+    <input formControlName="id" />
+    <input formControlName="name" />
+  </div>
+  <input formControlName="text" />
+  <button class="btn" type="submit" [disabled]="pizzaForm.pristine">
+    <i class="fa fa-save"></i>
+  </button>
+  <button class="btn" type="reset" (click)="revert()" [disabled]="pizzaForm.pristine">
+    <i class="fa fa-recycle"></i>
+  </button>
+</form>
